@@ -1,0 +1,237 @@
+:root {
+    --bg-color: #050505;
+    --neon-green: #39ff14;
+    --neon-purple: #bc13fe;
+    --neon-blue: #0ff0fc;
+    --text-color: #e0e0e0;
+    --font-main: 'Orbitron', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Scanlines background effect */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.2)
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.container {
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    border: 2px solid var(--neon-purple);
+    box-shadow: 0 0 10px var(--neon-purple), inset 0 0 20px rgba(188, 19, 254, 0.2);
+    position: relative;
+    background: rgba(10, 10, 10, 0.9);
+    animation: flicker-border 3s infinite alternate;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(45deg, transparent 40%, var(--neon-green) 45%, var(--neon-green) 55%, transparent 60%);
+    z-index: -1;
+    opacity: 0.3;
+}
+
+h1 {
+    text-align: center;
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    font-size: 2rem;
+}
+
+/* Input Styles */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+input {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 10px;
+    font-family: var(--font-main);
+    box-shadow: 0 0 5px var(--neon-blue);
+    outline: none;
+}
+
+input::placeholder {
+    color: rgba(15, 240, 252, 0.5);
+}
+
+button {
+    background: transparent;
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    padding: 10px 20px;
+    font-family: var(--font-main);
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: 0 0 2px var(--neon-green);
+    box-shadow: 0 0 5px var(--neon-green);
+    transition: all 0.2s;
+}
+
+button:hover {
+    background: var(--neon-green);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--neon-green);
+}
+
+/* Task List Styles */
+ul {
+    list-style: none;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+/* Scrollbar styles for pure cyberpunk feel */
+ul::-webkit-scrollbar {
+    width: 5px;
+}
+ul::-webkit-scrollbar-track {
+    background: #000;
+}
+ul::-webkit-scrollbar-thumb {
+    background: var(--neon-purple);
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.task-item:hover {
+    background: rgba(57, 255, 20, 0.1);
+}
+
+.task-text {
+    flex: 1;
+    position: relative;
+    display: inline-block;
+}
+
+/* Completed State */
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #555;
+    text-shadow: none;
+}
+
+.delete-btn {
+    border: 1px solid #ff0055;
+    color: #ff0055;
+    box-shadow: 0 0 2px #ff0055;
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}
+
+.delete-btn:hover {
+    background: #ff0055;
+    color: #fff;
+    box-shadow: 0 0 10px #ff0055;
+}
+
+/* Animations */
+@keyframes flicker-border {
+    0%, 100% { box-shadow: 0 0 10px var(--neon-purple), inset 0 0 20px rgba(188, 19, 254, 0.2); opacity: 1; }
+    5% { opacity: 0.8; }
+    10% { opacity: 0.9; }
+    15% { box-shadow: 0 0 2px var(--neon-purple); opacity: 0.5; }
+    20% { opacity: 1; }
+    50% { opacity: 0.95; }
+    55% { box-shadow: 0 0 15px var(--neon-purple); opacity: 0.4; }
+    60% { opacity: 1; }
+}
+
+/* Glitch Effect on Hover */
+.task-item:not(.completed):hover .task-text {
+    animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+    color: var(--neon-blue);
+}
+
+.task-item:not(.completed):hover .task-text::before,
+.task-item:not(.completed):hover .task-text::after {
+    content: attr(data-content);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.task-item:not(.completed):hover .task-text::before {
+    left: 2px;
+    text-shadow: -1px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.task-item:not(.completed):hover .task-text::after {
+    left: -2px;
+    text-shadow: -1px 0 #00fff9;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(70px, 9999px, 71px, 0); transform: skew(0.79deg); }
+    10% { clip: rect(28px, 9999px, 96px, 0); transform: skew(0.5deg); }
+    20% { clip: rect(10px, 9999px, 83px, 0); transform: skew(0.4deg); }
+    30% { clip: rect(66px, 9999px, 86px, 0); transform: skew(0.04deg); }
+    40% { clip: rect(44px, 9999px, 5px, 0); transform: skew(0.81deg); }
+    50% { clip: rect(18px, 9999px, 55px, 0); transform: skew(0.67deg); }
+    60% { clip: rect(93px, 9999px, 12px, 0); transform: skew(0.4deg); }
+    70% { clip: rect(9px, 9999px, 11px, 0); transform: skew(0.43deg); }
+    80% { clip: rect(69px, 9999px, 20px, 0); transform: skew(0.19deg); }
+    90% { clip: rect(2px, 9999px, 86px, 0); transform: skew(0.53deg); }
+    100% { clip: rect(51px, 9999px, 22px, 0); transform: skew(0deg); }
+}
+
+@keyframes glitch-anim2 {
+    0% { clip: rect(65px, 9999px, 100px, 0); }
+    100% { clip: rect(10px, 9999px, 63px, 0); }
+}
