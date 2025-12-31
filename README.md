@@ -92,9 +92,9 @@ Los tests usan el entorno `jsdom` y validan funciones clave en `script.js` como 
 
 ¡Contribuciones bienvenidas! Algunas ideas:
 
-- Añadir ordenación / filtros (todas, activas, completadas).
+- Añadir ordenación/filtros (todas, activas, completadas).
 - Añadir edición inline de tareas.
-- Añadir soporte para persistencia remota (API / backend).
+- Añadir soporte para persistencia remota (API/backend).
 
 Pasos para contribuir:
 1. Haz fork del repositorio.
