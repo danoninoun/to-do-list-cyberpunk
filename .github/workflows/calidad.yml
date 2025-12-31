@@ -1,0 +1,24 @@
+name: Revisión de Calidad (CI)
+
+on: [push, pull_request]
+
+jobs:
+  revision-codigo:
+    name: Linter Code Base
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Bajar el código
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Ejecutar Super-Linter
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_HTML: true
+          VALIDATE_CSS: true
