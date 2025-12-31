@@ -79,7 +79,7 @@ Los tests usan el entorno `jsdom` y validan funciones clave en `script.js` como 
 ## 🛠 Desarrollo
 
 - Código principal en `script.js`. Funciones importantes:
-  - `loadTasks()` / `saveTasks()` — carga y guarda en `localStorage`.
+  - `loadTasks()`/`saveTasks()` — carga y guarda en `localStorage`.
   - `addTask()` — añade una nueva tarea (ignora cadenas vacías o solo espacios).
   - `toggleTask(id)` — cambia `completed` para una tarea.
   - `deleteTask(id, event)` — elimina una tarea (previene propagación para no alternar al eliminar).
