@@ -1,4 +1,4 @@
-# To-Do List CYBERPUNK 🕹️
+# To-Do List Cyberpunk 🕹️
 
 **Lista de tareas con estética cyberpunk** creada como proyecto pequeño de frontend. Aplicación ligera que permite añadir, marcar como completadas y eliminar tareas. Las tareas se persisten en el navegador usando `localStorage`.
 
