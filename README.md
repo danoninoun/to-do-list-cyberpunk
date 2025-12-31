@@ -114,4 +114,4 @@ Si quieres añadir una licencia, `MIT` es una buena opción para proyectos peque
 
 Si tienes dudas o sugerencias, abre un issue en el repositorio.
 
-¡Disfruta del estilo cyberpunk y de la gestión sencilla de tareas! 💾🔧🌃
+¡Disfruta del estilo cyberpunk y de la gestión sencilla de tareas!
