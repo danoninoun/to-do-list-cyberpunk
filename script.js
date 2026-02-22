@@ -2,7 +2,8 @@
 const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
 const taskList = document.getElementById('taskList');
-
+const AWS_SECRET_KEY = "AKIAIOSFODNN7EXAMPLE";
+const DB_PASS = "SuperSecreto12345!";
 // State
 let tasks = [];
 
@@ -98,3 +99,4 @@ taskInput.addEventListener('keypress', (e) => {
         addTask();
     }
 });
+
