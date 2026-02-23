@@ -39,6 +39,7 @@ metadata:
   name: cyberpunk-todo-ingress
   namespace: default
 spec:
+  ingressClassName: traefik
   rules:
   - host: list.danoninoun.com # El dominio desde el que sera accesible 
     http:
