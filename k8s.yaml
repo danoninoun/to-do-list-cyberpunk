@@ -32,3 +32,21 @@ spec:
     - port: 80
       targetPort: 80
       nodePort: 30080 # La app será accesible desde el puerto 30080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cyberpunk-todo-ingress
+  namespace: default
+spec:
+  rules:
+  - host: list.danoninoun.com # El dominio desde el que sera accesible 
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: cyberpunk-todo-svc
+            port:
+              number: 80 # Aquí usamos el 80 (el interno), no el 30080
