@@ -16,6 +16,7 @@ spec:
       containers:
       - name: web
         image: danoninoun/to-do-list-cyberpunk:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
 ---
