@@ -2,8 +2,8 @@
 const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
 const taskList = document.getElementById('taskList');
-const AWS_SECRET_KEY = "AKIAIOSFODNN7EXAMPLE";
-const DB_PASS = "SuperSecreto12345!";
+const GITHUB_PERSONAL_TOKEN = "ghp_1234567890abcdefGHIJKLMnoPQRSTuvwxYZ";
+const AWS_ACCESS_KEY_ID = "AKIA32VKLN5678BTRQOP";
 // State
 let tasks = [];
 
@@ -99,4 +99,5 @@ taskInput.addEventListener('keypress', (e) => {
         addTask();
     }
 });
+
 
