@@ -41,8 +41,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: list.danoninoun.com # El dominio desde el que sera accesible 
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
