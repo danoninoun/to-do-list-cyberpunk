@@ -2,8 +2,7 @@
 const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
 const taskList = document.getElementById('taskList');
-const SLACK_HOOK = "https://hooks.slack.com/services/T1ABCD2EF/B1ABCD2EF/aBcDeFgHiJkLmNoPqRsTuVwX";
-const CLAVE_RSA = "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDEqw\n-----END PRIVATE KEY-----";
+
 // State
 let tasks = [];
 
@@ -99,6 +98,7 @@ taskInput.addEventListener('keypress', (e) => {
         addTask();
     }
 });
+
 
 
 
