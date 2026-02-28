@@ -17,4 +17,4 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             echo "Iniciando Pipeline DevSecOps..."
-            kubectl apply -f /scripts/tekton/run-pipeline-final.yaml
+            kubectl create -f /scripts/tekton/run-pipeline-final.yaml
